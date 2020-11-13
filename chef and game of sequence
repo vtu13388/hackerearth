@@ -1,0 +1,31 @@
+'''Chef has a sequence A containing N integers A1, A2, ..., AN.
+
+Chef is playing a game with this sequence. In this game, he may perform the following operation any number of times (including zero): Choose an arbitrary pair of elements from the sequence such that their sum is even, delete these two elements from the sequence and insert their sum into the sequence instead.
+
+The goal of the game is to minimise the number of elements in the sequence.
+
+Help Chef to play the game and find the minimum possible size of the sequence at the end of the game!
+Input:
+
+2
+2
+1 2
+5
+7 4 3 2 6
+
+Output:
+
+2
+1'''
+
+for _ in range(int(input())):
+    length=int(input())
+    l=list(map(int,input().split()))
+    no_of_odd=0
+    for i in range(length):
+        if(i%2!=0):
+            no_of_odd+=1
+    if(no_of_odd%2==0):
+        print(1)
+    else:
+        print(2)
