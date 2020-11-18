@@ -1,0 +1,48 @@
+'''Pappu is a very curious boy. Once when he was learning about converting binary to decimal numbers, he became interested in how bits of a binary number can be rearranged and what properties they have. Now he is stuck at this problem: Let B be a number whose binary representation is b1b2b3…bn Then compute,
+where bibj is a 2-bit binary number and decimal() converts the input binary number to a decimal number. 
+
+Input
+The first line contains a single number T, number of test cases. From the second line there will be T lines, each line containing an integer N.
+Input:
+2
+5
+11
+
+Output:
+6
+13
+ 
+
+Explanation
+N=5 Binary representation = 101 (b1=1 b2=0 b3=1)
+PF(5) = decimal(b1b2) + decimal(b1b3) + decimal(b2b3)
+= 10 + 11 + 01 = 2 + 3 + 1 = 6
+
+N=11 Binary representation = 1011 (b1=1 b2=0 b3=1 b4=1)
+PF(11) = decimal(b1b2) + decimal(b1b3) + decimal(b1b4) + decimal(b2b3) + decimal(b2b4) + decimal(b3b4)
+= 10 + 11 + 11 + 01 + 01 + 11 = 2 + 3 + 3 + 1 + 1 + 3 = 13'''
+def binary(num):
+    n=int(num)
+    s=''
+    while(n>0):
+        s=s+(str(n%2))
+        n//=2
+    return s[::-1]
+def dec(bnum):
+    value=0
+    binum=list(bnum)
+    for i in range(len(binum)):
+        digit=binum.pop()
+        if(digit=='1'):
+            value=value+pow(2,i)
+    return value
+
+for _ in range(int(input())):
+    decimal=int(input())
+    b=list(binary(decimal))
+    l=[]
+    for i in range(len(b)):
+        for j in range(i+1,len(b)):
+            val=dec(str(b[i])+str(b[j]))
+            l.append(val)
+    print(sum(l))
