@@ -1,0 +1,42 @@
+'''There are N students in a row, some Student are facing right and some left. Rajeev thinks the row will look good if all the students will face in the same direction.
+In one step you can move any one segment of consecutive Students. After moving a segment, all students facing right will face toward left and vice versa In how many minimum number of steps students will face in the same direction?
+
+Input
+The first line of the input contains an integer T denoting the number of test cases. The description of T test cases follows.
+Each test case is described in one line containing a string S of N characters, the i-th character is R if the i-th student is facing right and L if it is facing towards left.
+Output
+For each test case, output a single line containing the minimum number of move needed to make all students point to the same direction.
+
+
+Example
+Input:
+2
+RRLLLRRR
+RRRLLRL
+
+Output:
+1
+2
+Explanation
+Example case 1.In 1 step we can move all the students facing towards left in right.
+
+Example case 2.In 2 steps we can move either left segments towards right or both right segment towards left.'''
+CODE:
+for _ in range(int(input())):
+    string=input()
+    rcount=0
+    lcount=0
+    for i in range(len(string)-1):
+        for j in range(i+1,i+2):
+            if(string[i]==string[j]):
+                continue
+            elif(string[i]=='R' and string[j]=='L'):
+                rcount+=1
+            elif(string[i]=='L' and string[j]=='R'):
+                lcount+=1
+    if(string[len(string)-1]=='L'):
+        lcount+=1
+    elif(string[len(string)-1]=='R'):
+        rcount+=1
+    print(min(rcount,lcount))
+
