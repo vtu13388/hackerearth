@@ -1,0 +1,38 @@
+'''Little Bob and his friend Scoop love to play with numbers. So much so that even in their free time they like to solve problems rather than playing. Since both of them are good at it, every day and alternatively on each day, one of them asks another a problem. The one not able to solve the problem gives another a treat. This time it was Scoop's turn. Scoop was clever and so to get a treat, he asked his brother who was good at programming for a tough problem. Bob knows about this, but because of his love for numbers, he lets Scoop do it. The problem given was -
+    Given a sequence of n numbers, A1, A2, ... An. Find the number of unordered pairs ( i, j ) where i  j ( 1 <= i, j <=n ) such that one of Ai or Aj divides the other. 
+Bob found that the problem was really tough and so has come to you for help. Can you help him?        
+
+Input :
+    First line of the input consists of a single integer t, the number of test cases. The next 2*t lines contains the  description about the test cases.
+    Each test case consists of 2 lines. First line of each test contains a single integer n, the number of elements in the sequence A. Second line of each testcase contains n space separated integers where the ith element is equal to Ai.
+
+Output :
+    Output t lines. On the ith line, print a single number corresponding to the answer for the ith testcase.
+
+Constraints :
+    1 <= t <= 10
+    1 <= n <= 100000
+    1 <= Ai <= 100000 where 1 <= i <= n
+ 
+
+SAMPLE INPUT 
+2
+2
+2 4
+5
+3 2 4 2 6
+SAMPLE OUTPUT 
+1
+6
+Explanation
+For the 2nd test case, the unordered pairs are :
+      (1,5), (2,3), (2,4), (2,5), (3,4), (4,5) .'''
+CODE:
+a=int(input())
+l=list(map(int,input().split()))
+count=0
+for i in range(len(l)):
+    for j in range(i+1,len(l)):
+        if(l[i]%l[j]==0 or l[j]%l[i]==0):
+            count+=1
+print(count)
