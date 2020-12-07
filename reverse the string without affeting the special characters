@@ -1,0 +1,21 @@
+'''given the string consist of characters and special characters task is to reverse the string without changing the position of special characters 
+sample input:
+sd&hg#j
+sample output:
+jg&hd#s
+code:'''
+
+a=list(input())
+i=0
+j=len(a)-1
+while(i<j):
+    if(not(a[i].isalpha())):
+        i+=1
+    elif(not(a[j].isalpha())):
+        j-=1
+    else:
+        a[i],a[j]=a[j],a[i]
+        i+=1
+        j-=1
+reverse=''.join(a)
+print(reverse)
