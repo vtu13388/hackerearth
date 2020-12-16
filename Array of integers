@@ -1,0 +1,20 @@
+'''given an array of integers return the array having the product of remaining integers except the present index number
+input:
+1,2,3,4,5
+output:
+120,60,40,30,24
+'''
+
+l=list(map(int,input().split(',')))
+l2=[]
+
+for j in range(len(l)):
+    count=j
+    prod=1
+    for i in range(len(l)):
+        if(count==i):
+            continue
+        else:
+            prod*=l[i]
+    l2.append(prod)
+print(', '.join(map(str,l2)))
