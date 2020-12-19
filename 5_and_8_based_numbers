@@ -1,0 +1,31 @@
+'''given a integers separated with commas(,).find the num1 by adding all the numbers in the given integers except numbers between 5 and 8,and also find the num2 by concatinating the 
+numbers between 5 and 8 and print the sum of num1 and num2
+sample input:
+3,2,6,5,1,4,8,9
+sample output:
+5168
+explanation:
+num1=20
+num2=5148
+num1+num2=5168'''
+
+
+
+a=list(map(int,input().split(',')))
+c1=0
+sum1=0
+sum2=0
+if((5 in a)and (8 in a)):
+    for i in range(len(a)):
+        if(a[i]!=5 and c1==0):
+            sum1+=a[i]
+        elif(a[i]==5):
+            c1=1
+        elif(a[i]==8 and c1==1):
+            c1=0
+    u=a.index(5)
+    l=a.index(8)
+    s=''.join(map(str,a[u:l+1]))
+    sum2=int(s)
+    print(sum1+sum2)
+    # print(sum2)
