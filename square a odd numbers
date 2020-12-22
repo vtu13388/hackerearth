@@ -1,0 +1,15 @@
+'''given a list of integers separated by commas(,) generate a string of numbers that contain the squares of odd numbers present in the given list and separate them by commas 
+sample input:
+1,2,3,4,5,6,7,8,9
+sample output:
+1,9,25,49,81'''
+
+
+l=list(map(int,input().split(',')))
+l1=[]
+for i in l:
+    a=0
+    if(i%2!=0):
+        a=i*i
+        l1.append(a)
+print(','.join(map(str,l1)))
