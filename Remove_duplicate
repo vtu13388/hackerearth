@@ -1,0 +1,45 @@
+'''given a string and it contains the digits as well as special characters,we have to find out the largest even number that can be formed after removing the duplicates from the 
+given string,if not print '-1'
+
+sample input:
+%#341%#%2
+
+sample output:
+4312        '''
+#code:
+a=input()
+l=[]
+for i in a:
+    if((i not in l) and (i.isdigit())):
+        l.append(i)
+# print(l)
+l.sort(reverse=True)
+print(l)
+flag=0
+for i in l:
+    if(int(i)%2==0):
+        flag=1
+        break
+if(flag==0):
+    print('-1')
+else:
+    for i in range(len(l)-1,-1,-1):
+        if((int(l[i])%2==0)and (i==len(l)-1)):
+            print(''.join(map(str,l)))
+            break
+        # elif(int(l[i-1])%2==0):
+        #     l[i-1],l[i]=l[i],l[i-1]
+        #     print(''.join(map(str,l)))
+        #     break
+        else:
+            j=len(l)-1
+            while(int(l[j])%2!=0):
+                j-=1
+            for k in range(j,len(l)-1):
+                l[k],l[k+1]=l[k+1],l[k]
+            print(''.join(map(str,l)))
+            break
+        
+
+
+
