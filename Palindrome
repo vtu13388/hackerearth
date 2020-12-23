@@ -1,0 +1,40 @@
+'''for a given num print the palindrome by doing the specified operations
+i)add the num and it's reverse
+ii)check whether the sum is palindrome or not.if not add the sum and its reverse and repeat the process until we get the palindrome and print num
+sample input:
+124
+sample output:
+545
+explanation:
+num=124
+numrev=421
+sum=num+numrev(124+421=545)
+check palindrome or not
+if yes:print the sum
+else:
+untill we get the palindrome perform the 'sum+sumrev' operation'''
+code:
+#---------------palindrome fuction--------------
+def palindrome(num):
+    n=str(num)
+    if(n==n[::-1]):
+        return True
+    else:
+        return False
+#--------x-------palindrome fuction-------x-------
+a=input()
+b=''
+for i in range(len(a)-1,-1,-1):
+    b+=a[i]
+sum=int(a)+int(b)
+if(palindrome(sum)):
+    print(sum)
+else:
+    while(not(palindrome(sum))):
+        s=str(sum)
+        v=s[::-1]
+        sum+=int(v)
+    print(sum)
+
+
+
