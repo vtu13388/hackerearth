@@ -1,0 +1,22 @@
+'''the government of china believe that the health of the citizens is highest proiority.so it has declared that every citizens has to go to gym for N days.
+but the people of china are very lazy that they dont want to go to gym for more than one consecutive days .so,given a N day plan is given and in how many days they can 
+complete that N days plan?
+sample input:
+2
+3
+sample output:
+3
+5
+explanation 1:
+first day:gym
+second day:rest
+third day :gym
+total:3 days
+general explanation:
+total=ndays+n-1days
+i.e.,ndays for n day plan and n-1 days is for rest days.'''
+
+
+#code:
+a=int(input())
+print(a+(a-1))
