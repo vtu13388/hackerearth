@@ -1,0 +1,36 @@
+'''given a number N represent N in the form sum of single digit prime numbers and print the output as the minimum number of prime numbers required to get the N 
+if not possible print -1
+sample input:
+11
+sample output:
+3
+explanation:
+5+3+3 or 7+2+2
+we can also get 3+3+3+2=11 but it is not with minimum numbers 
+so ans is 3'''
+
+#code:
+def check(i,val):
+        if(i-val<0):
+                return False
+        else:
+                return True
+def minimalprime(a):
+        l=[10**9]*(a+1)
+        l[0]=l[2]=l[3]=l[5]=l[7]=1
+        for i in range(1,a+1):
+                if(check(i,2)):
+                        l[i]=min(l[i],1+l[i-2])
+                if(check(i,3)):
+                        l[i]=min(l[i],1+l[i-3])
+                if(check(i,5)):
+                        l[i]=min(l[i],1+l[i-5])
+                if(check(i,7)):
+                        l[i]=min(l[i],1+l[i-7])
+        if(l[a]==10**9):
+                return -1
+        else:
+                return l[a]
+for _ in range(int(input())):
+        a=int(input())
+        print(minimalprime(a))
