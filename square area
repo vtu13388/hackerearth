@@ -1,0 +1,45 @@
+'''Given two integers L and B denoting the length and breadth of a rectangle respectively. 
+The task is to calculate the sum of the area of all possible squares that comes into the rectangle.
+
+Examples:
+
+Input: L = 4, B = 3
+Output: 54
+
+Input:  L = 2, B = 5
+Output: 26
+explanation:
+Now, the number of squares of side 1 will be 12 as there will be two cases one as squares of 1-unit sides along the horizontal(3) and 
+second case as squares of 1-unit sides along the vertical(4). That gives us 3*4 = 12 squares.
+
+When the side is 2 units, one case will be as squares of side of 2 units along only one place horizontally and second case as two places vertically. 
+So the number of squares = 6
+
+So we can deduce that,
+Number of squares of size 1*1 will be L*B
+
+Number of squares of size 2*2 will be (L-1)(B-1)
+
+Therefore, the number of squares with size K will be:
+
+Number of square of size "K = (L-K+1)*(B-K+1)"
+
+Therefore, area of total number of squares of size K will be:
+
+Area of total number of square of size "K = (L-K+1)*(B-K+1)*K*K"
+
+'''
+
+#code:
+for _ in range(int(input())):
+    l,b=map(int,input().split())
+    size=1
+    max_size=min(l,b)
+    totalarea=0
+    for i in range(1,max_size+1):
+        squares=((l-size+1)*(b-size+1))
+        area=squares*size*size
+        totalarea+=area
+        size+=1
+    print(totalarea)
+        
