@@ -1,0 +1,30 @@
+'''given n numbers and find the sum of all the possible arrangements of the given numbers
+if the given numbers are same then also the the arrangement is considered as different 
+if the given numbers are 1,1 then two arrangements are possible they are 11 and 11 so the ans will be 22
+sample input:
+1           #testcase
+2           #no of elements
+1 2
+sample output:
+33
+explanation:
+possible combinations are 12 and 21 so sum of those numbers is 33'''
+
+
+from itertools import permutations
+for _ in range(int(input())):
+    n=int(input())
+    l=list(map(int,input().split()))
+    l1=list(permutations(l,n))
+    # print(l1)
+    l2=[]
+    for i in l1:
+        s=''
+        for k in i:
+            s+=str(k)
+        l2.append(s)
+    # print(l2)
+    sum=0
+    for i in l2:
+        sum+=int(i)
+    print(sum)
