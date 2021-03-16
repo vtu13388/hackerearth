@@ -1,0 +1,29 @@
+'''given a input string consist of paranthesis check whether the paranthesis are balanced or not
+sample input:
+“[()]{}{[()()]()}” 
+Output: 
+Balanced
+
+Input:
+exp = “[(])” 
+Output:
+Not Balanced '''
+
+
+def balanced(a):
+    l=[]
+    for i in a:
+        if(i=='(' or i=='[' or i=='{'):
+            l.append(i)
+        else:
+            char=l.pop()
+            if(char=='(' and i!=')'):
+                return ('Not Balanced')
+            if(char=='[' and i!=']'):
+                return ('Not Balanced')
+            if(char=='{' and i!='}'):
+                return ('Not Balanced')
+    return('Balanced')
+
+a=input()
+print(balanced(a))
