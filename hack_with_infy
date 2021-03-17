@@ -1,0 +1,38 @@
+'''given the n and n items a1,a2.....an where ai denotes the type of item ,the task is to select the max number of items by satisfying the conditions given
+conditions:
+1.no adjacent items should be taken
+2.should select only one item type
+
+input:
+1
+8
+12211211
+
+output:
+1
+explanation:
+if he selects 1 means he can take the items at positions a1,a4,a7 so total 3
+if he selects 2 he can take the items at positions a2,a6 so total 2
+so 3>2 so,1 will be the answer
+note:if both 1 and 2 have same total then the ans should be 1'''
+
+
+t=int(input())
+for i in range(t):
+    n=int(input())
+    l=list(map(int,input().split()))
+    count1=0
+    count2=0
+    for j in l:
+        if j==1:
+            count1 +=1
+        elif j==2:
+            count2 +=1
+    c1= (count1//2)+1
+    c2=(count2//2)+1
+    if c1==c2:
+        print(1)
+    elif c1>c2:
+        print(1)
+    else:
+        print(2)
