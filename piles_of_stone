@@ -1,0 +1,40 @@
+'''there are three piles of stones.the first pile contains a stones ,second pile contains b stones,third pile contains c stones.you must choose one of the pile and split the stones 
+from it and add them to remaining two piles.if choosen piles contains s stones,you should choose an integer k
+move k stones from choosen pile onto one of the remaining piles and s-k stones to remaining pile.determine if it is 
+possible for the two remaining piles to contain x stones and y stones after performing the action.
+
+input format:
+first line consist of no of test cases
+next line consist of a,b,c,x,y
+
+input:
+1
+1 2 3 2 4
+
+output:
+YES
+
+explanation:
+a=1,b=2,c=3  x=2,y=4
+choose the pile with max stones from a,b,c then split the stones and add them to the remaining piles 
+and check whether the x and y are arriving or not if yes print YES else NO
+CONDITIONS:a+(maxi-i)==x and b+(maxi-(i-1))==y 
+here i-1 because we have to check it with one num less than the num we have checked it for a'''
+
+
+for _ in range(int(input())):
+    a,b,c,x,y=map(int,input().split())
+    maxi=max(a,b,c)
+    f=0
+    for i in range(1,maxi+1):
+        if(a+(maxi-i)==x and b+(maxi-(i-1))==y):
+            f=1
+            break
+        else:
+            f=0
+    if(f==1):
+        print('YES')
+    else:
+        print('NO')
+
+        
