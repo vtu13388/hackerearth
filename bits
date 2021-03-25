@@ -1,0 +1,24 @@
+'''akanksha is lazy and she wants to solve her assignment
+she has a t numbers and her assignment is to tell no of bits when converted to its binary equivalent to be altered to convert the number to its additive identity
+sample input:
+1
+18
+sample output:
+2
+explantion:
+the binary value of 18 will have two 1's so the ans is 2 why because we need make it as zero
+here additive identity means zero'0'.'''
+
+#code:
+def binary(n):
+    l=[]
+    a=n
+    while(a>0):
+        r=a%2
+        l.insert(0,r)
+        a//=2
+    print(l.count(1))
+
+for _ in range(int(input())):
+    num=int(input())
+    binary(num)
