@@ -1,0 +1,18 @@
+'''given a list of integers find the arrangement which gives the max number out of the given numbers
+sample input:
+1
+5
+3 30 34 5 9
+
+sample output:
+9534330'''
+
+#code:
+from itertools import permutations
+for _ in range(int(input())):
+    n=int(input())
+    l=list(input().split())
+    l1=[]
+    for i in permutations(l,len(l)):
+        l1.append(''.join(map(str,i)))
+    print(max(l1))
