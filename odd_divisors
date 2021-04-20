@@ -1,0 +1,26 @@
+'''find the sum of all the odd proper divisors for all the numbers of range n,m for each number
+sample input:
+1
+1 10
+sample output:
+45
+expalanation:
+find the sum of odd divisors of each number and add them to the other number sum'''
+
+
+
+
+def oddsum(i):
+    s=0
+    for j in range(1,i+1,2):
+        if(i%j==0):
+            s+=j
+    return s
+
+
+for _ in range(int(input())):
+    a,b=map(int,input().split())
+    s=0
+    for i in range(a,b+1):
+        s+=oddsum(i)
+    print(s)
