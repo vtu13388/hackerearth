@@ -1,0 +1,33 @@
+'''Its Chef's Birthday and his friends are demanding him for treat. So he went to the shop to buy N gift packets (one for each friend). 
+Each gift packet bought from shop contains some number of chocolates in it.
+Chef believes in equality i.e. all gift packets should contain equal number of chocolates in it. 
+So Chef thought to rearrange the chocolates, one by one, such that all gift packets should contain equal number of chocolates afterwards.
+But since its Chef's Birthday he wants to do this in minimum number of chocolates moved. Help Chef to do this task and you might also get treat from Chef :p
+Input:
+2
+4
+5 2 4 5
+6
+5 2 4 1 7 5
+
+Output:
+2
+5
+Explanation
+Example case 1. Chef can move one chocolate from 1st gift packet to 2nd gift packet (distribution looks like 4 3 4 5). 
+Now in next move he moves one chocolate from last gift packet to 2nd gift packet. 
+Final distribution looks like 4 4 4 4 which took place in 2 moves.'''
+
+
+for _ in range(int(input())):
+    n=int(input())
+    l=list(map(int,input().split()))
+    if(sum(l)%n!=0):
+        print("No Treat")
+    else:
+        diff=sum(l)/n
+        csum=0
+        for i in l:
+            if(diff!=i):
+                csum+=abs(diff-i)
+        print(int(csum/2))
