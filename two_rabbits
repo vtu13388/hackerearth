@@ -1,0 +1,43 @@
+'''Being tired of participating in too many Codeforces rounds, Gildong decided to take some rest in a park. 
+He sat down on a bench, and soon he found two rabbits hopping around. One of the rabbits was taller than the other.
+
+He noticed that the two rabbits were hopping towards each other. The positions of the two rabbits can be represented as integer coordinates on a horizontal line. 
+The taller rabbit is currently on position x, and the shorter rabbit is currently on position y (x<y). 
+Every second, each rabbit hops to another position. The taller rabbit hops to the positive direction by a, and the shorter rabbit hops to the negative direction by b.
+
+For example, let’s say x=0, y=10, a=2, and b=3. At the 1-st second, each rabbit will be at position 2 and 7. At the 2-nd second, both rabbits will be at position 4.
+Gildong is now wondering: Will the two rabbits be at the same position at the same moment? If so, how long will it take? Let’s find a moment in time (in seconds) after which the rabbits will be at the same point.
+
+input:
+testacases
+x,y,a,b
+
+ouput:
+no of seconds or -1
+
+sample input:
+3
+0 10 2 3
+0 10 3 3
+900000000 1000000000 1 9999999
+
+sample output:
+2
+-1
+10
+'''
+
+#code:
+for _ in range(int(input())):
+    x,y,a,b=map(int,input().split())
+    flag=0
+    for i in range(1,y+1):
+        x=x+a
+        y=y-b
+        if(x==y):
+            flag=1
+            break
+    if(flag==1):
+        print(i)
+    else:
+        print(-1)
